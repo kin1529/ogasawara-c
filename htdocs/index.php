@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="1.css">
+    <link rel="stylesheet" href="index.css">
     <title>シフト管理者画面 </title>
 </head>
 
