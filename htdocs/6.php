@@ -18,7 +18,7 @@
        <label>電話番号</label>
        <input type="text" name="bangou" placeholder="電話番号"><br>
 
-       <button type="submit">次へ</button>
+       <button type="submit">ログイン</button>
     </from>
 </body>
 </html>
