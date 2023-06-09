@@ -7,6 +7,7 @@
 <body>
     <form action="6.1.php" method="post">
        <h2>アルバイト個人情報ログイン</h2>
+       <p>名前をセレクトボタンで選択し、電話番号を入力してください</p>
        <?php if (isset($_GET['error'])){ ?>
             <p class="error"><?php echo $_GET['error']; ?></p>
        <?php } ?>
