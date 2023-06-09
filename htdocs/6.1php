@@ -1,6 +1,6 @@
 <?php
 session_start();
-include "db_conn.php";
+include "6.db.php";
 
 if (isset($_POST['uname']) && isset($_POST['bangou'])){
     
@@ -15,10 +15,10 @@ if (isset($_POST['uname']) && isset($_POST['bangou'])){
     $pass = validate($_POST['bangou']);
 
     if (empty($uname)){
-        header("location: index2.php?error=正しく入力されませんでした");
+        header("location: 6.php?error=正しく入力されませんでした");
         exit();
     }else if(empty($pass)){
-        header("location: index2.php?error=正しく入力されませんでした");
+        header("location: 6.php?error=正しく入力されませんでした");
         exit();
     }else{
         $sql = "SELECT * FROM users WHERE user_name='$uname' AND bangou='$pass'";
@@ -30,11 +30,11 @@ if (isset($_POST['uname']) && isset($_POST['bangou'])){
             if ($row['user_name'] === $uname && $row['bangou'] === $pass) {
                 echo "成功";
         }else{
-            header("location: index2.php?error=成功");
+            header("location: 6.php?error=成功");
         exit();
         }
 }else{
-    header("location: index2.php?error=正しく入力されませんでした");
+    header("location: 6.php?error=正しく入力されませんでした");
     exit();
 }
 }
