@@ -11,7 +11,7 @@
     <h1 style="text-align:center">シフト作成者画面</h1>
 
     <br>
-    <a href="9.php" class="btn_01">ああああああシフト作成・登録</a>
+    <a href="9.php" class="btn_01">シフト作成・登録</a>
     <br>
     <a href="4.php" class="btn_02">アルバイト個人情報<br>登録・消去</a>
     <br>
