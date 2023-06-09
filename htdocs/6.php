@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>LOGIN</title>
+        <title>アルバイト画面</title>
         <link rel="stylesheet" type="text/css" href="6.css">
 </head>
 <body>
