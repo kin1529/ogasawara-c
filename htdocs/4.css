@@ -47,7 +47,11 @@
     /* ボタン間の余白を調整 */
     padding: 1rem 4rem;
     font-weight: bold;
+<<<<<<< HEAD
     border: 2px solid #27acd9;
+=======
+    border: 2px solid#27acd8;
+>>>>>>> fd999b3fa56841a23c1f7b835ea2e66f2e460ab6
     color: #27acd9;
     transition: 0.5s;
 }
