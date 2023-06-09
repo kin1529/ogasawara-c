@@ -2,10 +2,10 @@
 <html>
     <head>
         <title>LOGIN</title>
-        <link rel="stylesheet" type="text/css" href="style2.css">
+        <link rel="stylesheet" type="text/css" href="6.css">
 </head>
 <body>
-    <form action="login2.php" method="post">
+    <form action="6.1.php" method="post">
        <h2>アルバイト個人情報ログイン</h2>
        <?php if (isset($_GET['error'])){ ?>
             <p class="error"><?php echo $_GET['error']; ?></p>
