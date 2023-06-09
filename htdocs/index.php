@@ -13,7 +13,7 @@
     <br>
     <a href="1.php" class="btn_01">シフト作成者画面</a>
     <br>
-    <a href="6.php" class="btn_02">アルバイト画面</a>
+    <a href="index2.php" class="btn_02">アルバイト画面</a>
     
     
 
