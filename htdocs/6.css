@@ -40,14 +40,21 @@ label{
 
 button{
     float: right;
-    background: #555;
-    padding: 10px 15px;
-    color: #fff;
-    border-radius: 5px;
+    display:block;
+    background: #fff;
+    text-align: center;
+    vertical-align: middle;
+    text-decoration: none;
     margin-right: 10px;
-    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    font-weight: bold;
+    border: 2px solid #27acd9;
+    color: #27acd9;
 }
 button:hover{
+    color:#fff;
+    background: #27acd9;
     opacity: .7;
 }
 .error{
