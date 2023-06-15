@@ -18,18 +18,23 @@ $shift_data = [
     // 他のスタッフデータ...
 ];
 
-// シフト表の開始日と終了日を設定します
-// シフト表の開始日と終了日を設定します
+// 開始日の選択肢の範囲を設定します
+$min_date = new DateTime('2020-01-01');
+$max_date = new DateTime('2025-12-31');
+
+// 選択された開始日を取得します
 if (isset($_GET['date'])) {
-    $start_date = new DateTime($_GET['date']);
+    $selected_date = new DateTime($_GET['date']);
 } else {
-    $start_date = new DateTime('2023-06-11');
+    $selected_date = new DateTime('2023-06-11');
 }
 
-// 開始日が日曜日でない場合、次の日曜日まで移動します
-if ($start_date->format('w') !== '0') {
-    $start_date->modify('next Sunday');
-}
+// 選択肢の日付を生成します
+$date_options = generateDateOptions($min_date, $max_date, $selected_date);
+
+// シフト表の開始日と終了日を設定します
+$start_date = new DateTime($selected_date->format('Y-m-d'));
+
 
 $end_date = clone $start_date;
 $end_date->add(new DateInterval('P13D'));
@@ -49,11 +54,42 @@ $next_end_date->add(new DateInterval('P13D'));
 // 曜日の配列
 $weekdays = ['日', '月', '火', '水', '木', '金', '土'];
 
-// 前の2週間へのリンクを表示します
-echo "<a href='?date={$prev_start_date->format('Y-m-d')}'>前の2週間</a> | ";
+// フォームの開始
+echo "<form method='get' action=''>";
 
-// 次の2週間へのリンクを表示します
-echo "<a href='?date={$next_start_date->format('Y-m-d')}'>次の2週間</a>";
+// セレクトボックスで開始日を選択させる
+echo "<label for='start_date'>指定日:</label>";
+echo "<select name='date' id='start_date'>";
+foreach ($date_options as $date_option) {
+    $option_value = $date_option['value'];
+    $option_label = $date_option['label'];
+    $selected = ($selected_date->format('Y-m-d') === $option_value) ? 'selected' : '';
+    echo "<option value='$option_value' $selected>$option_label</option>";
+}
+echo "</select>";
+
+// シフト表を表示するボタン
+echo "<input type='submit' value='シフト表を表示'>";
+
+echo "</form>";
+
+// 関数: 選択肢の日付を生成する
+function generateDateOptions($min_date, $max_date, $selected_date) {
+    $date_options = [];
+
+    $current_date = clone $min_date;
+    while ($current_date <= $max_date) {
+        $value = $current_date->format('Y-m-d');
+        $label = $current_date->format('Y-m-d (D)');
+        $date_options[] = [
+            'value' => $value,
+            'label' => $label,
+        ];
+        $current_date->add(new DateInterval('P1D'));
+    }
+
+    return $date_options;
+}
 
 // シフト表のヘッダーを作成します
 echo "<table>";
