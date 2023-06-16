@@ -5,7 +5,7 @@
         <link rel="stylesheet" type="text/css" href="6.css">
 </head>
 <body>
-    <form action="1.php" method="post">
+    <form action="8.php" method="post">
        <h2>アルバイト個人情報ログイン</h2>
        <div style="text-align:center" >名前をセレクトボタンで選択し<br>
        電話番号を入力してください</p>
