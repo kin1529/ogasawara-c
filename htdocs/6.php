@@ -20,10 +20,8 @@
 
        <button type="submit">ログイン</button>
     </from>
-</body>
-</html>
-
-<?php
+    
+    <?php
 
 $sname= "localhost";
 $unmae= "root";
@@ -36,3 +34,9 @@ $conn = mysqli_connect($sname, $unmae, $bangou, $db_name);
 if (!$conn) {
     echo "Connection failed!";
 }
+?>
+
+</body>
+</html>
+
+
