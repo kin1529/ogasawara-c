@@ -21,7 +21,6 @@
 
 <?php
 session_start();
-include "";
 
 if (isset($_POST['uname']) && isset($_POST['bangou'])){
     
