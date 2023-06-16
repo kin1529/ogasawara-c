@@ -9,9 +9,6 @@
        <h2>アルバイト個人情報ログイン</h2>
        <div style="text-align:center" >名前をセレクトボタンで選択し<br>
        電話番号を入力してください</p>
-       <?php if (isset($_GET['error'])){ ?>
-            <p class="error"><?php echo $_GET['error']; ?></p>
-       <?php } ?>
        <label>名前</label>
        <input type="text" name="uname" placeholder="名前"><br>
 
@@ -22,21 +19,38 @@
     </from>
 </body>
 </html>
-
-<<<<<<< HEAD
 <?php
+// データベース接続情報
+$host = 'データベースのホスト名';
+$dbUsername = 'データベースのユーザー名';
+$dbPassword = 'データベースのパスワード';
+$dbName = 'データベース名';
 
-$sname= "localhost";
-$unmae= "root";
-$bangou= "";
+// データベースに接続
+$conn = new mysqli($host, $dbUsername, $dbPassword, $dbName);
 
-$db_name = "arubaito_db";
-
-$conn = mysqli_connect($sname, $unmae, $bangou, $db_name);
-
-if (!$conn) {
-    echo "Connection failed!";
+// 接続エラーの確認
+if ($conn->connect_error) {
+    die("データベースへの接続に失敗しました: " . $conn->connect_error);
 }
-=======
 
->>>>>>> adecf4a5aa325b3cce8d2bbba644af39b2c39d8a
+if (isset($_POST['name']) && isset($_POST['phone'])) {
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+
+    // データベースにデータを挿入するクエリを作成
+    $query = "INSERT INTO employees (name, phone) VALUES ('$name', '$phone')";
+
+    // クエリを実行して結果を確認
+    if ($conn->query($query) === true) {
+        // データの挿入成功
+        echo "データの挿入に成功しました";
+    } else {
+        // データの挿入失敗
+        echo "データの挿入に失敗しました: " . $conn->error;
+    }
+}
+
+// データベース接続を閉じる
+$conn->close();
+?>
