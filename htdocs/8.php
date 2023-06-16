@@ -46,5 +46,17 @@ if (isset($_POST['uname']) && isset($_POST['bangou'])){
 
         $result = mysqli_query($conn, $sql);
 
-    }
+        if(mysqli_num_rows($result) === 1){
+            $row = mysqli_fetch_assoc($result);
+            if ($row['user_name'] === $uname && $row['bangou'] === $pass) {
+                echo "成功";
+        }else{
+            header("location: 6.php?error=成功");
+        exit();
+        }
+}else{
+    header("location: 6.php?error=正しく入力されませんでした");
+    exit();
+}
+}
 }
