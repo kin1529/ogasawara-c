@@ -9,6 +9,7 @@
 
 <body>
     <h1>シフト作成者シフト確認</h1>
+
     <?php
 // シフトデータ（仮のデータ）
 $shift_data = [
@@ -143,6 +144,11 @@ foreach ($shift_data as $staff) {
 
 echo "</table>";
 ?>
+<br>
+<a href="1.php" class="btn_01">
+  <span class="vertical-text">戻る</span>
+</a>
+
 </body>
 
 </html>
