@@ -23,4 +23,20 @@
 </body>
 </html>
 
+<<<<<<< HEAD
+<?php
 
+$sname= "localhost";
+$unmae= "root";
+$bangou= "";
+
+$db_name = "arubaito_db";
+
+$conn = mysqli_connect($sname, $unmae, $bangou, $db_name);
+
+if (!$conn) {
+    echo "Connection failed!";
+}
+=======
+
+>>>>>>> adecf4a5aa325b3cce8d2bbba644af39b2c39d8a
