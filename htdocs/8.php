@@ -21,7 +21,7 @@
 
 <?php
 session_start();
-include "6.php";
+include "";
 
 if (isset($_POST['uname']) && isset($_POST['bangou'])){
     
