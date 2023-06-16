@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- ホスト: 127.0.0.1
--- 生成日時: 2023-06-16 10:51:30
+-- 生成日時: 2023-06-16 11:14:02
 -- サーバのバージョン： 10.4.28-MariaDB
 -- PHP のバージョン: 8.2.4
 
@@ -24,10 +24,10 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- テーブルの構造 `アルバイト情報テーブル`
+-- テーブルの構造 `arubaito_table`
 --
 
-CREATE TABLE `アルバイト情報テーブル` (
+CREATE TABLE `arubaito_table` (
   `バイトID` int(11) NOT NULL,
   `名前` varchar(30) DEFAULT NULL,
   `電話番号` varchar(30) DEFAULT NULL,
@@ -35,20 +35,20 @@ CREATE TABLE `アルバイト情報テーブル` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- テーブルのデータのダンプ `アルバイト情報テーブル`
+-- テーブルのデータのダンプ `arubaito_table`
 --
 
-INSERT INTO `アルバイト情報テーブル` (`バイトID`, `名前`, `電話番号`, `時給`) VALUES
+INSERT INTO `arubaito_table` (`バイトID`, `名前`, `電話番号`, `時給`) VALUES
 (1, '山田太郎', '09011111111', 1200),
 (2, '田中太郎', '09022222222', 1200);
 
 -- --------------------------------------------------------
 
 --
--- テーブルの構造 `シフトテーブル`
+-- テーブルの構造 `revised sihuto_table`
 --
 
-CREATE TABLE `シフトテーブル` (
+CREATE TABLE `revised sihuto_table` (
   `バイトID` int(11) DEFAULT NULL,
   `日付` date NOT NULL,
   `開始` datetime NOT NULL,
@@ -56,20 +56,20 @@ CREATE TABLE `シフトテーブル` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- テーブルのデータのダンプ `シフトテーブル`
+-- テーブルのデータのダンプ `revised sihuto_table`
 --
 
-INSERT INTO `シフトテーブル` (`バイトID`, `日付`, `開始`, `終了`) VALUES
-(1, '2023-06-16', '2023-06-16 08:00:00', '2023-06-16 14:00:00'),
-(2, '2023-06-17', '2023-06-17 09:00:00', '2023-06-17 19:00:00');
+INSERT INTO `revised sihuto_table` (`バイトID`, `日付`, `開始`, `終了`) VALUES
+(1, '2023-06-16', '2023-06-16 10:00:00', '2023-06-16 19:00:00'),
+(2, '2023-06-17', '2023-06-17 12:00:00', '2023-06-17 19:00:00');
 
 -- --------------------------------------------------------
 
 --
--- テーブルの構造 `修正後シフトテーブル`
+-- テーブルの構造 `sihuto_table`
 --
 
-CREATE TABLE `修正後シフトテーブル` (
+CREATE TABLE `sihuto_table` (
   `バイトID` int(11) DEFAULT NULL,
   `日付` date NOT NULL,
   `開始` datetime NOT NULL,
@@ -77,21 +77,21 @@ CREATE TABLE `修正後シフトテーブル` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- テーブルのデータのダンプ `修正後シフトテーブル`
+-- テーブルのデータのダンプ `sihuto_table`
 --
 
-INSERT INTO `修正後シフトテーブル` (`バイトID`, `日付`, `開始`, `終了`) VALUES
-(1, '2023-06-16', '2023-06-16 10:00:00', '2023-06-16 19:00:00'),
-(2, '2023-06-17', '2023-06-17 12:00:00', '2023-06-17 19:00:00');
+INSERT INTO `sihuto_table` (`バイトID`, `日付`, `開始`, `終了`) VALUES
+(1, '2023-06-16', '2023-06-16 08:00:00', '2023-06-16 14:00:00'),
+(2, '2023-06-17', '2023-06-17 09:00:00', '2023-06-17 19:00:00');
 
 --
 -- ダンプしたテーブルのインデックス
 --
 
 --
--- テーブルのインデックス `アルバイト情報テーブル`
+-- テーブルのインデックス `arubaito_table`
 --
-ALTER TABLE `アルバイト情報テーブル`
+ALTER TABLE `arubaito_table`
   ADD PRIMARY KEY (`バイトID`);
 
 --
@@ -99,9 +99,9 @@ ALTER TABLE `アルバイト情報テーブル`
 --
 
 --
--- テーブルの AUTO_INCREMENT `アルバイト情報テーブル`
+-- テーブルの AUTO_INCREMENT `arubaito_table`
 --
-ALTER TABLE `アルバイト情報テーブル`
+ALTER TABLE `arubaito_table`
   MODIFY `バイトID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 COMMIT;
 
