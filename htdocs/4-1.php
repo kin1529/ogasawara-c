@@ -13,7 +13,7 @@ $phone = $_POST['phone'];
 $hourlyRate = $_POST['hourly-rate'];
 
 require 'mydb.sql'; # 接続
-$sql = 'insert into arubaito_table (name,phone,`hourly-rate`) values (:name, :phone, :hourlyRate)’;
+$sql = 'insert into arubaito_table (name,phone,hourly-rate) values (:name, :phone, :hourlyRate)’;
 $prepare = $db->prepare($sql); # 準備
 $prepare->bindValue(':name', $name, PDO::PARAM_STR); # 埋め込み1
 $prepare->bindValue(':phone', $phone, PDO::PARAM_STR); # 埋め込み2
