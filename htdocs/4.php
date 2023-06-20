@@ -32,14 +32,21 @@
 
 </html>
 <?php
-// データベース接続設定
+//データベース接続設定
 $dbServer = '127.0.0.1';
 $dbName = 'mydb';
-$dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
-$dbUser = 'testuser';
-$dbPass = 'pass';
-// データベースへの接続
+$dsn = "mysql:host={$dbServer};
+dbname={$dbName};
+charset=utf8";
+$dbUser = 'root';
+$dbPass = '';
+//データベースへの接続
 $db = new PDO($dsn, $dbUser, $dbPass);
+
+// 接続エラーの確認
+if ($conn->connect_error) {
+    die("データベースへの接続に失敗しました: " . $conn->connect_error);
+}
 
 // 登録ボタンが押された場合の処理
 if (isset($_POST['register'])) {
@@ -48,10 +55,8 @@ if (isset($_POST['register'])) {
     $hourlyRate = $_POST['hourly-rate'];
 
     // プリペアドステートメントの準備
-    $stmt = $db->prepare("INSERT INTO arubaito_table (バイトID, 名前, 電話番号, 時給) VALUES (NULL, ?, ?, ?)");
-    $stmt->bindParam(1, $name);
-    $stmt->bindParam(2, $phone);
-    $stmt->bindParam(3, $hourlyRate);
+    $stmt = $conn->prepare("INSERT INTO arubaito_table (バイトID, 名前, 電話番号, 時給) VALUES (NULL, ?, ?, ?)");
+    $stmt->bind_param("sss", $name, $phone, $hourlyRate); // パラメータをバインド
 
     // プリペアドステートメントの実行
     if ($stmt->execute()) {
@@ -59,6 +64,9 @@ if (isset($_POST['register'])) {
     } else {
         echo "アルバイト情報の登録に失敗しました。";
     }
+
+    // ステートメントを閉じる
+    $stmt->close();
 }
 
 // 消去ボタンが押された場合の処理
@@ -67,9 +75,8 @@ if (isset($_POST['delete'])) {
     $phone = $_POST['phone'];
 
     // プリペアドステートメントの準備
-    $stmt = $db->prepare("DELETE FROM arubaito_table WHERE 名前=? AND 電話番号=?");
-    $stmt->bindParam(1, $name);
-    $stmt->bindParam(2, $phone);
+    $stmt = $conn->prepare("DELETE FROM arubaito_table WHERE 名前=? AND 電話番号=?");
+    $stmt->bind_param("ss", $name, $phone); // パラメータをバインド
 
     // プリペアドステートメントの実行
     if ($stmt->execute()) {
@@ -77,8 +84,11 @@ if (isset($_POST['delete'])) {
     } else {
         echo "アルバイト情報の削除に失敗しました。";
     }
+
+    // ステートメントを閉じる
+    $stmt->close();
 }
 
 // データベース接続を閉じる
-$db = null;
+$conn->close();
 ?>
