@@ -13,12 +13,12 @@
 <th>自給</th>
 </tr>
 <?php
-require '4.php';                                                              # 接続
+                                                             # 接続
 $sql = 'SELECT * FROM arubaito_table';                           # SQL文
 $prepare = $db->prepare($sql);                                   # 準備
 $prepare->execute();                                                      # 実行
 $result = $prepare->fetchAll(PDO::FETCH_ASSOC);  # 結果の取得
-
+require '4.php'; 
 foreach ($result as $row) {
   $name = h($row['name']);
   $phone = h($row['phone']);
