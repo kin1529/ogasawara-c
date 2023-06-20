@@ -26,7 +26,7 @@ $dbUsername = 'root';
 $dbName = 'arubaito_table';
 
 // データベースに接続
-$conn = new mysqli($host, $dbUsername, $dbPassword, $dbName);
+$conn = new mysqli($host, $dbUsername, $dbName);
 
 // 接続エラーの確認
 if ($conn->connect_error) {
