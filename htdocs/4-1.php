@@ -20,6 +20,10 @@ $prepare->bindValue(':phone', $phone, PDO::PARAM_STR); # 埋め込み2
 $prepare->bindValue(':hourlyRate', $hosurlyRate, PDO::PARAM_STR); # 埋め込み3
 $prepare->execute(); # 実行
 ?>
-<p><a href="show-all.php">確認</a></p>
+<br>
+<a href="1.php" class="btn_01">
+<span class="vertical-text">戻る</span>
+</a>
+
 </body>
 </html>
