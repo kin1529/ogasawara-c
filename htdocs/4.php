@@ -32,16 +32,16 @@
 
 </html>
 <?php
-session_start();
-
-// データベース接続情報
-$host = 'データベースのホスト名';
-$dbUsername = 'データベースのユーザー名';
-$dbPassword = 'データベースのパスワード';
-$dbName = 'データベース名';
-
-// データベースに接続
-$conn = new mysqli($host, $dbUsername, $dbPassword, $dbName);
+//データベース接続設定
+$dbServer = '127.0.0.1';
+$dbName = 'mydb';
+$dsn = "mysql:host={$dbServer};
+dbname={$dbName};
+charset=utf8";
+$dbUser = 'testuser';
+$dbPass = 'pass';
+//データベースへの接続
+$db = new PDO($dsn, $dbUser, $dbPass);
 
 // 接続エラーの確認
 if ($conn->connect_error) {
