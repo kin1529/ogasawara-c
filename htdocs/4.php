@@ -54,13 +54,19 @@ if (isset($_POST['register'])) {
     $phone = $_POST['phone'];
     $hourlyRate = $_POST['hourly-rate'];
 
-    // データベースに新しいアルバイト情報を登録
-    $query = "INSERT INTO arubaito_table (バイトID, 名前, 電話番号, 時給) VALUES (NULL, '$name', '$phone', $hourlyRate)";
-    if ($conn->query($query) === true) {
+    // プリペアドステートメントの準備
+    $stmt = $conn->prepare("INSERT INTO arubaito_table (バイトID, 名前, 電話番号, 時給) VALUES (NULL, ?, ?, ?)");
+    $stmt->bind_param("sss", $name, $phone, $hourlyRate); // パラメータをバインド
+
+    // プリペアドステートメントの実行
+    if ($stmt->execute()) {
         echo "アルバイト情報が登録されました。";
     } else {
         echo "アルバイト情報の登録に失敗しました。";
     }
+
+    // ステートメントを閉じる
+    $stmt->close();
 }
 
 // 消去ボタンが押された場合の処理
@@ -68,13 +74,19 @@ if (isset($_POST['delete'])) {
     $name = $_POST['name'];
     $phone = $_POST['phone'];
 
-    // データベースからアルバイト情報を削除
-    $query = "DELETE FROM arubaito_table WHERE 名前='$name' AND 電話番号='$phone'";
-    if ($conn->query($query) === true) {
+    // プリペアドステートメントの準備
+    $stmt = $conn->prepare("DELETE FROM arubaito_table WHERE 名前=? AND 電話番号=?");
+    $stmt->bind_param("ss", $name, $phone); // パラメータをバインド
+
+    // プリペアドステートメントの実行
+    if ($stmt->execute()) {
         echo "アルバイト情報が削除されました。";
     } else {
         echo "アルバイト情報の削除に失敗しました。";
     }
+
+    // ステートメントを閉じる
+    $stmt->close();
 }
 
 // データベース接続を閉じる
