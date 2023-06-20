@@ -22,11 +22,12 @@
 <?php
 // データベース接続情報
 $host = 'localhost';
-$dbUsername = 'root';
+$dbUsername = 'testuser';
+$dbpassward = 'pass';
 $dbName = 'arubaito_table';
 
 // データベースに接続
-$conn = new mysql($host, $dbUsername, $dbName);
+$conn = new mysql($host, $dbUsername, $dbpassward, $dbName);
 
 // 接続エラーの確認
 if ($conn->connect_error) {
