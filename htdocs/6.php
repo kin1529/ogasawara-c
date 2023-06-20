@@ -23,7 +23,6 @@
 // データベース接続情報
 $host = 'localhost';
 $dbUsername = 'root';
-$dbPassword = 'データベースのパスワード';
 $dbName = 'arubaito_table';
 
 // データベースに接続
