@@ -19,38 +19,3 @@
     </from>
 </body>
 </html>
-<?php
-// データベース接続情報
-$host = 'データベースのホスト名';
-$dbUsername = 'データベースのユーザー名';
-$dbPassword = 'データベースのパスワード';
-$dbName = 'データベース名';
-
-// データベースに接続
-$conn = new mysqli($host, $dbUsername, $dbPassword, $dbName);
-
-// 接続エラーの確認
-if ($conn->connect_error) {
-    die("データベースへの接続に失敗しました: " . $conn->connect_error);
-}
-
-if (isset($_POST['name']) && isset($_POST['phone'])) {
-    $name = $_POST['name'];
-    $phone = $_POST['phone'];
-
-    // データベースにデータを挿入するクエリを作成
-    $query = "INSERT INTO employees (name, phone) VALUES ('$name', '$phone')";
-
-    // クエリを実行して結果を確認
-    if ($conn->query($query) === true) {
-        // データの挿入成功
-        echo "データの挿入に成功しました";
-    } else {
-        // データの挿入失敗
-        echo "データの挿入に失敗しました: " . $conn->error;
-    }
-}
-
-// データベース接続を閉じる
-$conn->close();
-?>
