@@ -30,7 +30,6 @@
     </div>
 </body>
 
-<<<<<<< HEAD
 </html>
 <?php
 session_start();
@@ -93,6 +92,3 @@ if (isset($_POST['delete'])) {
 // データベース接続を閉じる
 $conn->close();
 ?>
-=======
-</html>
->>>>>>> 3d054213d30a42847ba0285061106510cecfa064
