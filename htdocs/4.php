@@ -35,19 +35,10 @@
 //データベース接続設定
 $dbServer = '127.0.0.1';
 $dbName = 'mydb';
-<<<<<<< HEAD
 $dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
 $dbUser = 'root';
 $dbPass = '';
 // データベースへの接続
-=======
-$dsn = "mysql:host={$dbServer};
-dbname={$dbName};
-charset=utf8";
-$dbUser = 'root';
-$dbPass = '';
-//データベースへの接続
->>>>>>> b318fd1faead7fc316f2d6215766973d8ec5c374
 $db = new PDO($dsn, $dbUser, $dbPass);
 
 // 接続エラーの確認
