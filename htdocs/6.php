@@ -21,10 +21,10 @@
 </html>
 <?php
 // データベース接続情報
-$host = 'データベースのホスト名';
-$dbUsername = 'データベースのユーザー名';
+$host = 'localhost';
+$dbUsername = 'root';
 $dbPassword = 'データベースのパスワード';
-$dbName = 'データベース名';
+$dbName = 'arubaito_table';
 
 // データベースに接続
 $conn = new mysqli($host, $dbUsername, $dbPassword, $dbName);
