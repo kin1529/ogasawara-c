@@ -12,8 +12,8 @@
 <th>電話番号</th>
 <th>自給</th>
 </tr>
-<?php
-                                                             # 接続
+
+<?php                                                        # 接続
 $sql = 'SELECT * FROM arubaito_table';                           # SQL文
 $prepare = $db->prepare($sql);                                   # 準備
 $prepare->execute();                                                      # 実行
@@ -26,6 +26,7 @@ foreach ($result as $row) {
   echo "<tr><td>{$name}</td><td>{$phone}</td><td>{$hourlyRate}</td></tr>";
 }
 ?>
+
 </table>
 
 <br>
