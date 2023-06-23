@@ -33,14 +33,13 @@
 </html>
 <?php
 // データベース接続設定
-require 'arubaito_db.php';
-$dbServer = '127.0.0.1';
-$dbName = 'mydb';
-$dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
-$dbUser = 'root';
-$dbPass = '';
-// データベースへの接続
-$db = new PDO($dsn, $dbUser, $dbPass);
+require 'db.php';                                # 接続
+$sql = 'SELECT * FROM arubaito_table';            # SQL文
+$prepare = $db->prepare($sql);                   # 準備
+$prepare->execute();                             # 実行
+$result = $prepare->fetchAll(PDO::FETCH_ASSOC);  # 結果の取得
+$num = 1;                                        # DBに登録されているデータ数(初期値1)
+
 
 // 登録ボタンが押された場合の処理
 if (isset($_POST['register'])) {
