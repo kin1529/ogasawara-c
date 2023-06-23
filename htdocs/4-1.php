@@ -17,7 +17,7 @@
       // データベース接続設定
       require 'db.php';
 
-      $conn = new mysqli($host, $dbUsername, $dbPassword, $dbName);
+
 
       // アルバイト情報の取得
       $sql = 'SELECT * FROM arubaito_table';
