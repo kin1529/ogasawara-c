@@ -33,14 +33,8 @@
 </html>
 <?php
 // データベース接続設定
-$dbServer = '127.0.0.1';
-$dbName = 'mydb';
-$dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
-$dbUser = 'root';
-$dbPass = '';
-// データベースへの接続
-$db = new PDO($dsn, $dbUser, $dbPass);
-
+require("./db.php");
+session_start ();
 // 登録ボタンが押された場合の処理
 if (isset($_POST['register'])) {
     $name = $_POST['name'];
