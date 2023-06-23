@@ -33,7 +33,7 @@
 </html>
 <?php
 // データベース接続設定
-require 'arubaito_db.php';
+require 'db.php';
 $dbServer = '127.0.0.1';
 $dbName = 'mydb';
 $dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
