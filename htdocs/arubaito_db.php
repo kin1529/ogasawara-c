@@ -1,23 +1,27 @@
 <?php
-// データベース接続の設定
-$dbServer = '127.0.0.1';
-$dbName = 'mydb';
-$dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
-$dbUser = 'root';
-$dbPass = '';
 
-// データベースに接続
-$db = new PDO($dsn, $dbUser, $dbPass);
-
-// クエリを実行してデータを取得する例
-$query = "SELECT * FROM arubaito_table";
-$result = $conn->query($query);
-
-// 結果を表示
-while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-    print_r($row);
+# HTMLでのエスケープ処理をする関数（データベースとは無関係だが，ついでにここで定義しておく．）
+function h($var) {
+  if (is_array($var)) {
+    return array_map('h', $var);
+  } else {
+    return htmlspecialchars($var, ENT_QUOTES, 'UTF-8');
+  }
 }
 
-// 接続を閉じる
-$conn = null;
-?>
+$dbServer = '127.0.0.1';
+$dbUser = isset($_SERVER['MYSQL_USER'])     ? $_SERVER['MYSQL_USER']     : 'root';
+$dbPass = isset($_SERVER['MYSQL_PASSWORD']) ? $_SERVER['MYSQL_PASSWORD'] : '';
+$dbName = isset($_SERVER['MYSQL_DB'])       ? $_SERVER['MYSQL_DB']       : 'mydb';
+
+$dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
+
+try {
+  $db = new PDO($dsn, $dbUser, $dbPass);
+  # プリペアドステートメントのエミュレーションを無効にする．
+  $db->setAttribute(PDO::ATTR_EMULATE_PREPARES, false);
+  # エラー→例外
+  $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+} catch (PDOException $e) {
+  echo "Can't connect to the database: " . h($e->getMessage());
+}
