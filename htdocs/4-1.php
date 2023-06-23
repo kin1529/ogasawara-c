@@ -15,9 +15,46 @@
 
       <?php
       // データベース接続設定
-      require 'db.php';
+      require_once ("db.php");
 
+// 登録ボタンが押された場合の処理
+if (isset($_POST['register'])) {
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+    $hourlyRate = $_POST['hourly-rate'];
 
+    // プリペアドステートメントの準備
+    $sql="INSERT INTO arubaito_table (バイトID, 名前, 電話番号, 時給) VALUES (?,?,:phone,:hourlyRate)";
+    $stmt = $db->prepare($sql) ;
+
+    // プリペアドステートメントの実行
+    if ($stmt->execute()) {
+        echo "アルバイト情報が登録されました。";
+    } else {
+        echo "アルバイト情報の登録に失敗しました。";
+    }
+}
+
+// 消去ボタンが押された場合の処理
+if (isset($_POST['delete'])) {
+    $name = $_POST['name'];
+    $phone = $_POST['phone'];
+
+    // プリペアドステートメントの準備
+    $stmt = $db->prepare("DELETE FROM arubaito_table WHERE 名前=? AND 電話番号=?");
+    $stmt->bindParam(1, $name);
+    $stmt->bindParam(2, $phone);
+
+    // プリペアドステートメントの実行
+    if ($stmt->execute()) {
+        echo "アルバイト情報が削除されました。";
+    } else {
+        echo "アルバイト情報の削除に失敗しました。";
+    }
+}
+
+// データベース接続を閉じる
+//$db = null;
 
       // アルバイト情報の取得
       $sql = 'SELECT * FROM arubaito_table';
