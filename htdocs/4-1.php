@@ -15,7 +15,7 @@
 
       <?php
       // データベース接続設定
-      require("./db.php");
+      require 'db.php';
 
       session_start ();
 
