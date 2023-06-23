@@ -24,6 +24,7 @@
       $db = new PDO($dsn, $dbUser, $dbPass);
 
       // アルバイト情報の取得
+      require 'arubaito_db.php'; 
       $sql = 'SELECT * FROM arubaito_table';
       $stmt = $db->prepare($sql);
       $stmt->execute();
