@@ -34,8 +34,7 @@
 <?php
 
 // データベース接続設定
-require 'db.php';
-
+require_once ("db.php");
 
 
 // 登録ボタンが押された場合の処理
