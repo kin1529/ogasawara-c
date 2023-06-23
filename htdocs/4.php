@@ -33,11 +33,13 @@
 </html>
 <?php
 // データベース接続設定
-$dbServer = '127.0.0.1';
-$dbName = 'mydb';
-$dsn = "mysql:host={$dbServer};dbname={$dbName};charset=utf8";
-$dbUser = 'root';
-$dbPass = '';
+require 'db.php';                                # 接続
+$sql = 'SELECT * FROM match_results';            # SQL文
+$prepare = $db->prepare($sql);                   # 準備
+$prepare->execute();                             # 実行
+$result = $prepare->fetchAll(PDO::FETCH_ASSOC);  # 結果の取得
+$num = 1;                                        # DBに登録されているデータ数(初期値1)
+
 // データベースへの接続
 $db = new PDO($dsn, $dbUser, $dbPass);
 
