@@ -17,7 +17,6 @@
       // データベース接続設定
       require 'db.php';
 
-      session_start ();
 
       // アルバイト情報の取得
       $sql = 'SELECT * FROM arubaito_table';

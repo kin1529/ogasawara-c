@@ -36,7 +36,6 @@
 // データベース接続設定
 require 'db.php';
 
-session_start ();
 // 登録ボタンが押された場合の処理
 if (isset($_POST['register'])) {
     $name = $_POST['name'];
