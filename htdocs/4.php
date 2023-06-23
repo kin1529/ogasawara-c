@@ -36,6 +36,9 @@
 // データベース接続設定
 require 'db.php';
 
+$conn = new mysqli($host, $dbUsername, $dbPassword, $dbName);
+
+
 // 登録ボタンが押された場合の処理
 if (isset($_POST['register'])) {
     $name = $_POST['name'];
