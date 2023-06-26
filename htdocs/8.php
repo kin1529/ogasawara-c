@@ -21,7 +21,7 @@
 
 <?php
 session_start();
-include "db2.php";
+include "db.php";
 
 if (isset($_POST['uname']) && isset($_POST['bangou'])){
     
