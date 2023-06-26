@@ -33,22 +33,22 @@ if (isset($_POST['uname']) && isset($_POST['bangou'])){
     }
 
     $uname = validate($_POST['uname']);
-    $pass = validate($_POST['bangou']);
+    $bangou = validate($_POST['bangou']);
 
     if (empty($uname)){
         header("location: 6.php?error=正しく入力されませんでした");
         exit();
-    }else if(empty($pass)){
+    }else if(empty($bangou)){
         header("location: 6.php?error=正しく入力されませんでした");
         exit();
     }else{
-        $sql = "SELECT * FROM users WHERE user_name='$uname' AND bangou='$pass'";
+        $sql = "SELECT * FROM arubaito_table WHERE 名前='$uname' AND phone='$bangou'";
 
         $result = mysqli_query($conn,$sql);
 
         if(mysqli_num_rows($result) === 1){
             $row = mysqli_fetch_assoc($result);
-            if ($row['user_name'] === $uname && $row['bangou'] === $pass) {
+            if ($row['名前'] === $uname && $row['phone'] === $bangou) {
                 echo "成功";
         }else{
             header("location: 6.php?error=成功");
@@ -56,8 +56,9 @@ if (isset($_POST['uname']) && isset($_POST['bangou'])){
         }
 }else{
     header("location: 6.php?error=正しく入力されませんでした");
+    $link = '<a href="6.php">ホーム</a>';
     exit();
 }
 }
 }
-
+?>
