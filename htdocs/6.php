@@ -5,7 +5,7 @@
         <link rel="stylesheet" type="text/css" href="6.css">
 </head>
 <body>
-    <form action="8.php" method="post">
+    <form action="" method="post">
        <h2>アルバイト個人情報ログイン</h2>
        <div style="text-align:center" >名前をセレクトボタンで選択し<br>
        電話番号を入力してください</p>
@@ -38,10 +38,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // データベース接続設定
     require_once ("db.php");
 
-    $conn = new PDO("mysql:host=$dbSever;dbname=$dbName", $dbUser, $dbPass);
+    $conn = new PDO("mysql:host=$dbServer;dbname=$dbName", $dbUser, $dbPass);
 
     // ユーザーIDに対応するデータを取得
-    $query = "SELECT password FROM arubaito_table WHERE 名前=? AND 電話番号=?";
+    $query = "SELECT 電話番号 FROM arubaito_table WHERE user_id= :名前";
     $stmt = $conn->prepare($query);
     $stmt->bindParam(":名前", $userId);
     $stmt->execute();
@@ -55,7 +55,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // ログイン成功の処理
             echo "ログインに成功しました";
              // ログイン成功の処理
-            header("Location: 8.php");
+            header("Location:8.php");
             exit;
 
             
@@ -63,20 +63,20 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             // パスワードが一致しない場合の処理
             echo "ユーザーIDまたはパスワードが間違っています";
             // ログイン画面に戻るためのリンクを表示
-             '>a href="6.php">ログイン画面に戻る</a>';
+            echo'<a href="'."6.php".'">'."ログイン画面に戻る".'</a>';
          exit;
         }
     } else {
         // ユーザーIDが存在しない場合の処理
         echo "ユーザーIDまたはパスワードが間違っています";
         // ログイン画面に戻るためのリンクを表示
-         '>a href="6.php">ログイン画面に戻る</a>';
+        echo'<a href="'."6.php".'">'."ログイン画面に戻る".'</a>';
      exit;
     }
 
 
     // データベース接続を閉じる
-    $conn = null;
+    #$conn = null;
 
 
 
