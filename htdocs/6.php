@@ -20,16 +20,15 @@
 </body>
 </html>
 
-
 <?php
 // フォームが送信されたかどうかを確認
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // 入力データを取得
-    $userId = $_POST["name"];
-    $password = $_POST["bangou"];
+    $name = $_POST["name"];
+    $phone = $_POST["bangou"];
 
     // フォームのバリデーション
-    if (empty($userId) || empty($password)) {
+    if (empty($name) || empty($phone)) {
         // 必須フィールドが空の場合、エラーメッセージを表示して処理を中止
         echo "ユーザーIDとパスワードを入力してください";
         exit;
@@ -38,13 +37,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // データベース接続設定
     require_once ("db.php");
 
-    $conn = new PDO("mysql:host=$dbServer;dbname=$dbName", $dbUser, $dbPass);
 
-    // ユーザーIDに対応するデータを取得
-    $query = "SELECT 電話番号 FROM arubaito_table WHERE user_id= :名前";
-    $stmt = $conn->prepare($query);
-    $stmt->bindParam(":名前", $userId);
-    $stmt->execute();
+     // プリペアドステートメントの準備
+     $stmt = $db->prepare("DELETE FROM arubaito_table WHERE 名前=? AND 電話番号=?");
+     $stmt->bindParam(1, $name);
+     $stmt->bindParam(2, $phone);
 
     // パスワードの照合
     if ($stmt->rowCount() > 0) {
@@ -76,7 +73,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
 
     // データベース接続を閉じる
-    #$conn = null;
+    $db = null;
 
 
 
