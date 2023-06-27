@@ -1,31 +1,26 @@
 <!DOCTYPE html>
 <html>
-<head>
-    <title>アルバイト画面</title>
-    <link rel="stylesheet" type="text/css" href="6.css">
-</head>
-<body>
-    <form action="" method="post">
-        <h2>アルバイト個人情報ログイン</h2>
-        <div style="text-align:center">
-            <p>名前をセレクトボタンで選択し<br>
-            電話番号を入力してください</p>
-            <label>名前</label>
-            <select name="name">
-                <option value="名前1">名前1</option>
-                <option value="名前2">名前2</option>
-                <option value="名前3">名前3</option>
-                <!-- セレクトボタンに表示する名前のオプションを追加 -->
-            </select><br>
+    <head>
+        <title>アルバイト画面</title>
+        <link rel="stylesheet" type="text/css" href="6.css">
+    </head>
+    <body>
+        <form action="" method="post">
+            <h2>アルバイト個人情報ログイン</h2>
+            <div style="text-align:center">
+                <p>名前をセレクトボタンで選択し<br>
+                電話番号を入力してください</p>
+                <label>名前</label>
+                <input type="text" name="name" placeholder="名前"><br>
 
-            <label>電話番号</label>
-            <input type="text" name="bangou" placeholder="電話番号"><br>
+                <label>電話番号</label>
+                <input type="text" name="bangou" placeholder="電話番号"><br>
 
-            <button type="submit">ログイン</button>
-        </div>
-    </form>
-</body>
-</html>
+                <button type="submit">ログイン</button>
+            </div>
+        </form>
+    </body>
+
 
 <?php
 // フォームが送信されたかどうかを確認
@@ -37,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // フォームのバリデーション
     if (empty($name) || empty($phone)) {
         // 必須フィールドが空の場合、エラーメッセージを表示して処理を中止
-        echo "名前と電話番号を入力してください";
+        echo "ユーザーIDとパスワードを入力してください";
         exit;
     }
 
@@ -64,7 +59,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         exit;
     } else {
         // ログイン失敗の処理
-        echo "名前または電話番号が間違っています";
+        echo "ユーザーIDまたはパスワードが間違っています";
         // ログイン画面に戻るためのリンクを表示
         echo '<a href="6.php">ログイン画面に戻る</a>';
         exit;
@@ -74,3 +69,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $db = null;
 }
 ?>
+</html>
