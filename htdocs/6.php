@@ -20,7 +20,7 @@
             </div>
         </form>
     </body>
-</html>
+
 
 <?php
 // フォームが送信されたかどうかを確認
@@ -69,3 +69,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $db = null;
 }
 ?>
+</html>
