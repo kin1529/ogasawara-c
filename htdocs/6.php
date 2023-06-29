@@ -14,7 +14,7 @@
                 <input type="text" name="name" placeholder="名前"><br>
 
                 <label>電話番号</label>
-                <input type="passward" name="bangou" placeholder="電話番号"><br>
+                <input type="password" name="bangou" placeholder="電話番号"><br>
 
                 <button type="submit">ログイン</button>
             </div>
