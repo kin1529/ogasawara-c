@@ -109,14 +109,9 @@
                 for ($hour = 9; $hour <= 22; $hour++) {
                     $time = str_pad($hour, 2, '0', STR_PAD_LEFT) . ":00";
                     $selected = '';
-
-                    // POSTされたシフト情報があればそれを優先して選択状態にします
-                    if (isset($shifts[$id][$date]['start_time']) && $shifts[$id][$date]['start_time'] === $time) {
-                        $selected = 'selected';
-                    } elseif (isset($shift_data[$id][$date]['start_time']) && $shift_data[$id][$date]['start_time'] === $time) {
+                    if (isset($shift_data[$id][$date]['start_time']) && $shift_data[$id][$date]['start_time'] === $time) {
                         $selected = 'selected';
                     }
-
                     $start_time_html .= "<option value='$time' $selected>$time</option>";
                 }
 
@@ -132,14 +127,9 @@
                 for ($hour = 9; $hour <= 22; $hour++) {
                     $time = str_pad($hour, 2, '0', STR_PAD_LEFT) . ":00";
                     $selected = '';
-
-                    // POSTされたシフト情報があればそれを優先して選択状態にします
-                    if (isset($shifts[$id][$date]['end_time']) && $shifts[$id][$date]['end_time'] === $time) {
-                        $selected = 'selected';
-                    } elseif (isset($shift_data[$id][$date]['end_time']) && $shift_data[$id][$date]['end_time'] === $time) {
+                    if (isset($shift_data[$id][$date]['end_time']) && $shift_data[$id][$date]['end_time'] === $time) {
                         $selected = 'selected';
                     }
-
                     $end_time_html .= "<option value='$time' $selected>$time</option>";
                 }
 
@@ -174,8 +164,7 @@
         }
         ?>
 
-        <input type="submit" value="登録" class="btn_01">
-    </form>
-</body>
+        <button onclick="redirectToDestination()" class="btn_01">登録</button>
+    </body>
 
-</html>
+    </html>
