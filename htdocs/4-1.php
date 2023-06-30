@@ -9,7 +9,6 @@
     <table border="1">
       <tr>
         <th>名前</th>
-        <th>電話番号</th>
         <th>時給</th>
       </tr>
 
@@ -65,9 +64,8 @@
 
       foreach ($result as $row) {
         $name = htmlspecialchars($row['名前'], ENT_QUOTES, 'UTF-8');
-        $phone = htmlspecialchars($row['電話番号'], ENT_QUOTES, 'UTF-8');
         $hourlyRate = htmlspecialchars($row['時給'], ENT_QUOTES, 'UTF-8');
-        echo "<tr><td>{$name}</td><td>{$phone}</td><td>{$hourlyRate}</td></tr>";
+        echo "<tr><td>{$name}</td><td>{$hourlyRate}</td></tr>";
       }
 
       // データベース接続を閉じる
