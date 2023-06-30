@@ -165,6 +165,7 @@
         ?>
 
         <button onclick="redirectToDestination()" class="btn_01">登録</button>
+        <a href="12.php" class="btn_02">確認</a>
     </body>
 
     </html>
