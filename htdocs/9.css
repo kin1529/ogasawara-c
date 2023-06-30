@@ -17,21 +17,21 @@
     background: #27acd9;
 }
 
-a.btn_02 {
+.btn_02 {
     display: block;
     text-align: center;
     vertical-align: middle;
     text-decoration: none;
-    width: 150px;
-    margin: auto;
+    width: 160px;
     padding: 1rem 4rem;
     font-weight: bold;
     border: 2px solid #27acd9;
     color: #27acd9;
     transition: 0.5s;
+    float: right;
 }
 
-a.btn_02:hover {
+.btn_02:hover {
     color: #fff;
     background: #27acd9;
 }
