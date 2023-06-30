@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <form action="9.php" method="post">
+    <form action="9copy.php" method="post">
         <h2 style="text-align:left">シフト作成・登録</h2>
 
         <?php
@@ -163,10 +163,8 @@
             echo "シフト情報が保存されました。";
         }
         ?>
-         <button href="12.php" class="btn_01">確認</button>
 
         <button onclick="redirectToDestination()" class="btn_01">登録</button>
-        
         
     </body>
 
