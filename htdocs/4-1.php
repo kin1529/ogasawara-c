@@ -27,13 +27,15 @@
           $sql="INSERT INTO arubaito_table (バイトID, 名前, 電話番号, 時給) VALUES (NULL, ?, ?, ?)";
           $stmt = $db->prepare($sql) ;
 
-          // プリペアドステートメントの実行
-          if ($stmt->execute([$name, $phone, $hourlyRate])) {
-              echo "アルバイト情報が登録されました。";
-          } else {
-              echo "アルバイト情報の登録に失敗しました。";
-          }
+         // プリペアドステートメントの実行
+         if ($stmt->execute([$name, $phone, $hourlyRate])) {
+          // データの登録が成功した場合、リダイレクトする
+          header("Location: ".$_SERVER['PHP_SELF']);
+          exit();
+      } else {
+          echo "アルバイト情報の登録に失敗しました。";
       }
+  }
 
       // 消去ボタンが押された場合の処理
       if (isset($_POST['delete'])) {
@@ -45,13 +47,15 @@
           $stmt->bindParam(1, $name);
           $stmt->bindParam(2, $phone);
 
-          // プリペアドステートメントの実行
-          if ($stmt->execute([$name, $phone])) {
-              echo "アルバイト情報が削除されました。";
-          } else {
-              echo "アルバイト情報の削除に失敗しました。";
-          }
+         // プリペアドステートメントの実行
+         if ($stmt->execute([$name, $phone])) {
+          // データの削除が成功した場合、リダイレクトする
+          header("Location: ".$_SERVER['PHP_SELF']);
+          exit();
+      } else {
+          echo "アルバイト情報の削除に失敗しました。";
       }
+  }
 
       // アルバイト情報の取得
       $sql = 'SELECT * FROM arubaito_table';
