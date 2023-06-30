@@ -8,7 +8,7 @@
 </head>
 
 <body>
-    <form action="12.php" method="post">
+    <form action="9.php" method="post">
         <h2 style="text-align:left">シフト作成・登録</h2>
 
         <?php
