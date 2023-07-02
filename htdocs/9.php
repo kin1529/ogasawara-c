@@ -103,7 +103,7 @@
                 $start_time_name = "shift[$id][$date][start_time]";
                 $start_time_id = "start_time_$id" . "_" . $current_date->format('Ymd');
                 $start_time_html = "<select name='$start_time_name' id='$start_time_id'>";
-                $start_time_html .= "<option value='--'>--</option>";
+                $start_time_html .= "<option value='---'>--</option>";
 
                 // 開始時間の選択肢を生成します（9時から22時まで）
                 for ($hour = 9; $hour <= 22; $hour++) {
@@ -121,7 +121,7 @@
                 $end_time_name = "shift[$id][$date][end_time]";
                 $end_time_id = "end_time_$id" . "_" . $current_date->format('Ymd');
                 $end_time_html = "<select name='$end_time_name' id='$end_time_id'>";
-                $end_time_html .= "<option value='--'>--</option>";
+                $end_time_html .= "<option value='---'>--</option>";
 
                 // 終了時間の選択肢を生成します（開始時間以降の時間）
                 for ($hour = 9; $hour <= 22; $hour++) {
