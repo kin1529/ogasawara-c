@@ -26,11 +26,12 @@ $staff_data = $stmt->fetchAll(PDO::FETCH_ASSOC);
 if (isset($_GET['date'])) {
     $start_date = new DateTime($_GET['date']);
 } else {
-    // 一か月後の日曜日の日付を取得します
-    $next_sunday = strtotime('next Sunday +1 month');
-    $next_sunday_date = date('Y-m-d', $next_sunday);
-    $start_date = new DateTime($next_sunday_date);
+    // 2週間後の日曜日の日付を取得します
+    $two_weeks_later = strtotime('+2 weeks next Sunday');
+    $two_weeks_later_date = date('Y-m-d', $two_weeks_later);
+    $start_date = new DateTime($two_weeks_later_date);
 }
+
 
 // 開始日が日曜日でない場合、次の日曜日まで移動します
 if ($start_date->format('w') !== '0') {
