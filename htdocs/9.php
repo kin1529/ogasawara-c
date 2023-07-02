@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <link rel="stylesheet" href="9.css">
-    <title>シフト作成・登録</title>
+    <title>シフト確定</title>
 </head>
 
 <body>
