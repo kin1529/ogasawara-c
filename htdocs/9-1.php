@@ -3,12 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="9 copy.css">
+    <link rel="stylesheet" href="9-1.css">
     <title>シフト登録</title>
 </head>
 
 <body>
-    <form action="9_copy.php" method="post">
+    <form action="9-1.php" method="post">
         <h2 style="text-align:left">シフト作成・登録</h2>
 
         <?php
