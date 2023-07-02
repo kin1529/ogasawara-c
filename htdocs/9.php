@@ -148,24 +148,20 @@
         // データベースにシフト情報を保存する処理
         if (isset($_POST['shift'])) {
             $shifts = $_POST['shift'];
-
+        
             foreach ($shifts as $staff_id => $shift_data) {
                 foreach ($shift_data as $date => $times) {
                     $start_time = $times['start_time'];
-$end_time = $times['end_time'];
-
-if ($start_time !== '---' && $end_time !== '---') {
-    // バリデーションや必要な処理を行った後、データベースに保存する例
-    $stmt = $db->prepare("INSERT INTO sihuto_table (`バイトID`, `日付`, `開始`, `終了`) VALUES (?, ?, ?, ?)");
-    $stmt->execute([$staff_id, $date, $start_time, $end_time]);
-}
-
-                    // バリデーションや必要な処理を行った後、データベースに保存する例
-                    $stmt = $db->prepare("INSERT INTO sihuto_table (`バイトID`, `日付`, `開始`, `終了`) VALUES (?, ?, ?, ?)");
-                    $stmt->execute([$staff_id, $date, $start_time, $end_time]);
+                    $end_time = $times['end_time'];
+        
+                    if ($start_time !== '---' && $end_time !== '---') {
+                        // バリデーションや必要な処理を行った後、データベースに保存する例
+                        $stmt = $db->prepare("INSERT INTO sihuto_table (`バイトID`, `日付`, `開始`, `終了`) VALUES (?, ?, ?, ?)");
+                        $stmt->execute([$staff_id, $date, $start_time, $end_time]);
+                    }
                 }
             }
-
+        
             echo "シフト情報が保存されました。";
         }
         ?>
