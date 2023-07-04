@@ -78,3 +78,4 @@ if (isset($_POST['delete'])) {
 // データベース接続を閉じる
 $db = null;
 ?>
+
