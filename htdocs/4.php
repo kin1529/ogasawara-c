@@ -34,8 +34,20 @@
 <?php
 
 // データベース接続設定
-require_once ("db.php");
+require_once("db.php");
 
+// テーブル作成
+$query = "CREATE TABLE IF NOT EXISTS `arubaito_table` (
+  `ID` int(11) NOT NULL AUTO_INCREMENT,
+  `バイトID` int(11) NOT NULL,
+  `名前` varchar(30) DEFAULT NULL,
+  `電話番号` varchar(30) DEFAULT NULL,
+  `時給` decimal(8,0) NOT NULL,
+  PRIMARY KEY (`ID`)
+)";
+
+// テーブル作成の準備と実行
+$db->exec($query);
 
 // 登録ボタンが押された場合の処理
 if (isset($_POST['register'])) {
@@ -44,7 +56,7 @@ if (isset($_POST['register'])) {
     $hourlyRate = $_POST['hourly-rate'];
 
     // プリペアドステートメントの準備
-    $stmt = $db->prepare("INSERT INTO arubaito_table (バイトID, 名前, 電話番号, 時給) VALUES (NULL, ?, ?, ?)");
+    $stmt = $db->prepare("INSERT INTO `arubaito_table` (`バイトID`, `名前`, `電話番号`, `時給`) VALUES (NULL, ?, ?, ?)");
     $stmt->bindParam(1, $name);
     $stmt->bindParam(2, $phone);
     $stmt->bindParam(3, $hourlyRate);
@@ -63,7 +75,7 @@ if (isset($_POST['delete'])) {
     $phone = $_POST['phone'];
 
     // プリペアドステートメントの準備
-    $stmt = $db->prepare("DELETE FROM arubaito_table WHERE 名前=? AND 電話番号=?");
+    $stmt = $db->prepare("DELETE FROM `arubaito_table` WHERE `名前`=? AND `電話番号`=?");
     $stmt->bindParam(1, $name);
     $stmt->bindParam(2, $phone);
 
@@ -78,3 +90,4 @@ if (isset($_POST['delete'])) {
 // データベース接続を閉じる
 $db = null;
 ?>
+
