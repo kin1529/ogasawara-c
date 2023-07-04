@@ -169,9 +169,13 @@
         }
 
         echo "</table>";
+
+        // 送信ボタンを表示します
+        echo "<div style='text-align: center; margin-top: 20px;'>";
+        echo "<input type='submit' value='登録'>";
+        echo "</div>";
         ?>
 
-        <input type="submit" value="シフト登録">
     </form>
 </body>
 
