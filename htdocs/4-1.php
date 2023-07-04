@@ -23,7 +23,7 @@
           $hourlyRate = $_POST['hourly-rate'];
 
           // プリペアドステートメントの準備
-          $sql="INSERT INTO arubaito_table (ID,バイトID, 名前, 電話番号, 時給) VALUES (NULL, ?, ?, ?)";
+          $sql="INSERT INTO arubaito_table (バイトID, 名前, 電話番号, 時給) VALUES (NULL, ?, ?, ?)";
           $stmt = $db->prepare($sql) ;
 
          // プリペアドステートメントの実行
