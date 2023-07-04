@@ -27,7 +27,7 @@
     }
     ?>
     <br>
-    <a href="9.php" class="btn_01">シフト提出</a>
+    <a href="9-1.php" class="btn_01">シフト提出</a>
     <br>
     <a href="11.php" class="btn_01">シフト確認</a>
     <br>

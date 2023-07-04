@@ -1,7 +1,6 @@
 .btn_01 {
     display: block;
     text-align: center;
-    vertical-align: middle;
     text-decoration: none;
     width: 160px;
     padding: 1rem 4rem;
@@ -9,7 +8,6 @@
     border: 2px solid #27acd9;
     color: #27acd9;
     transition: 0.5s;
-    float: right;
 }
 
 .btn_01:hover {
