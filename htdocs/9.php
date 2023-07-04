@@ -110,7 +110,7 @@
                 for ($hour = 9; $hour <= 22; $hour++) {
                     $time = str_pad($hour, 2, '0', STR_PAD_LEFT) . ":00";
                     $selected = '';
-                    if (isset($shift_data[$id][$date]['start_time']) && $shift_data[$id][$date]['start_time'] === $time) {
+                    if (isset($_POST['shift'][$id][$date]['start_time']) && $_POST['shift'][$id][$date]['start_time'] === $time) {
                         $selected = 'selected';
                     }
                     $start_time_html .= "<option value='$time' $selected>$time</option>";
@@ -128,7 +128,7 @@
                 for ($hour = 9; $hour <= 22; $hour++) {
                     $time = str_pad($hour, 2, '0', STR_PAD_LEFT) . ":00";
                     $selected = '';
-                    if (isset($shift_data[$id][$date]['end_time']) && $shift_data[$id][$date]['end_time'] === $time) {
+                    if (isset($_POST['shift'][$id][$date]['end_time']) && $_POST['shift'][$id][$date]['end_time'] === $time) {
                         $selected = 'selected';
                     }
                     $end_time_html .= "<option value='$time' $selected>$time</option>";
