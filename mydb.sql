@@ -28,7 +28,7 @@ CREATE TABLE `arubaito_table` (
   `電話番号` varchar(30) DEFAULT NULL,
   `時給` decimal(8,0) NOT NULL,
   PRIMARY KEY (`バイトID`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,33 +37,34 @@ CREATE TABLE `arubaito_table` (
 
 LOCK TABLES `arubaito_table` WRITE;
 /*!40000 ALTER TABLE `arubaito_table` DISABLE KEYS */;
-INSERT INTO `arubaito_table` VALUES (2,'田中太郎','09022222222',1200),(3,'佐藤二朗','09033333333',1300),(4,'たああ','090',11),(5,'qw','11',1);
+INSERT INTO `arubaito_table` VALUES (2,'田中太郎','09022222222',1200),(3,'佐藤二朗','09033333333',1300),(16,'太郎','09044444444',1200);
 /*!40000 ALTER TABLE `arubaito_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
--- Table structure for table `revised sihuto_table`
+-- Table structure for table `revised_sihuto_table`
 --
 
-DROP TABLE IF EXISTS `revised sihuto_table`;
+DROP TABLE IF EXISTS `revised_sihuto_table`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `revised sihuto_table` (
-  `バイトID` int(11) DEFAULT NULL,
+CREATE TABLE `revised_sihuto_table` (
+  `バイトID` int(11) NOT NULL,
   `日付` date NOT NULL,
   `開始` time NOT NULL,
-  `終了` time NOT NULL
+  `終了` time NOT NULL,
+  PRIMARY KEY (`バイトID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
--- Dumping data for table `revised sihuto_table`
+-- Dumping data for table `revised_sihuto_table`
 --
 
-LOCK TABLES `revised sihuto_table` WRITE;
-/*!40000 ALTER TABLE `revised sihuto_table` DISABLE KEYS */;
-INSERT INTO `revised sihuto_table` VALUES (1,'2023-06-16','10:00:00','19:00:00'),(2,'2023-06-17','12:00:00','19:00:00');
-/*!40000 ALTER TABLE `revised sihuto_table` ENABLE KEYS */;
+LOCK TABLES `revised_sihuto_table` WRITE;
+/*!40000 ALTER TABLE `revised_sihuto_table` DISABLE KEYS */;
+INSERT INTO `revised_sihuto_table` VALUES (1,'2023-06-16','10:00:00','19:00:00'),(2,'2023-06-17','12:00:00','19:00:00');
+/*!40000 ALTER TABLE `revised_sihuto_table` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -74,10 +75,11 @@ DROP TABLE IF EXISTS `sihuto_table`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `sihuto_table` (
-  `バイトID` int(11) DEFAULT NULL,
+  `バイトID` int(11) NOT NULL,
   `日付` date NOT NULL,
   `開始` time NOT NULL,
-  `終了` time NOT NULL
+  `終了` time NOT NULL,
+  PRIMARY KEY (`バイトID`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
@@ -100,4 +102,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-06-30 14:11:04
+-- Dump completed on 2023-07-04 11:30:28
