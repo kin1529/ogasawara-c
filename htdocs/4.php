@@ -44,7 +44,7 @@ if (isset($_POST['register'])) {
     $hourlyRate = $_POST['hourly-rate'];
 
     // プリペアドステートメントの準備
-    $stmt = $db->prepare("INSERT INTO arubaito_table (ID,バイトID, 名前, 電話番号, 時給) VALUES (NULL, ?, ?, ?)");
+    $stmt = $db->prepare("INSERT INTO arubaito_table (バイトID, 名前, 電話番号, 時給) VALUES (NULL, ?, ?, ?)");
     $stmt->bindParam(1, $name);
     $stmt->bindParam(2, $phone);
     $stmt->bindParam(3, $hourlyRate);
