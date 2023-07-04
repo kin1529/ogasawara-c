@@ -156,11 +156,11 @@
                 $end_time = $times['end_time'];
     
                 if ($start_time !== '---' && $end_time !== '---') {
-                    // 同じ日付のレコードを削除する例
+                    // 同じ日付のレコードを削除する
                     $stmt = $db->prepare("DELETE FROM sihuto_table WHERE `バイトID` = ? AND `日付` = ?");
                     $stmt->execute([$staff_id, $date]);
     
-                    // データベースに保存する例
+                    // データベースに保存する
                     $stmt = $db->prepare("INSERT INTO sihuto_table (`バイトID`, `日付`, `開始`, `終了`) VALUES (?, ?, ?, ?)");
                     $stmt->execute([$staff_id, $date, $start_time, $end_time]);
                 }
