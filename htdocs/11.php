@@ -12,6 +12,19 @@
 <body>
     <div class="container">
     <?php
+            // データベース接続設定
+            require_once("db.php");
+    
+            // ログインしたユーザーの名前を表示
+            session_start();
+            if (isset($_SESSION["name"])) {
+                $name = $_SESSION["name"];
+                echo "<p style='text-align:center'>ログインユーザー：$name</p>";
+            } else {
+                // ログインしていない場合はログイン画面にリダイレクト
+                header("Location: 6.php");
+                exit;
+            }
 // タイムゾーンを設定
 date_default_timezone_set('Asia/Tokyo');
 
