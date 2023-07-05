@@ -23,11 +23,12 @@ DROP TABLE IF EXISTS `arubaito_table`;
 /*!40101 SET @saved_cs_client     = @@character_set_client */;
 /*!40101 SET character_set_client = utf8 */;
 CREATE TABLE `arubaito_table` (
-  `バイトID` int(11) NOT NULL,
+  `バイトID` int(11) NOT NULL AUTO_INCREMENT,
   `名前` varchar(30) DEFAULT NULL,
   `電話番号` varchar(30) DEFAULT NULL,
-  `時給` decimal(8,0) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+  `時給` decimal(8,0) NOT NULL,
+  PRIMARY KEY (`バイトID`)
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -103,4 +104,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2023-07-04 14:56:31
+-- Dump completed on 2023-07-05 21:10:16
