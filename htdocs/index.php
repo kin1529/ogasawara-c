@@ -2,22 +2,26 @@
 <html lang="ja">
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="index.css">
-    <title>シフト管理システム </title>
+  <meta charset='utf-8' />
+  <title>Search Form</title>
+  <link rel="stylesheet" href="gamen1.css">
 </head>
 
 <body>
-    <h1 style="text-align:center">シフト作成者画面</h1>
+    <h1>商品検索</h1>
 
-    <br>
-    <a href="1.php" class="btn_01">シフト作成者画面</a>
-    <br>
-    <a href="6.php" class="btn_02">アルバイト画面</a>
+    <form class="box" action="gamen3.php" method="post">
+      <input type="submit" value="商品検索">
+    </form>
 
-    
+    <form class="box" action="gamen1.php" method="post">
+      <input type="submit" value="号館選択">
+    </form>
 
-
+        <!--以下、kome2.phpへ遷移するボタンのコード-->
+    <form class="box" action="kome2.php" method="post">
+      <input type="submit" value="コメントへ">
+    </form> 
+  
 </body>
-
 </html>

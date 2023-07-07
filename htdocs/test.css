@@ -1,0 +1,10 @@
+.btn {
+    padding: 30px 30px;
+    background: rgb(239, 220, 13);
+    color: #0e0808;
+   }
+    
+    
+   .btn:hover {
+    opacity: 0.7;
+   }

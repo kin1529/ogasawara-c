@@ -1,0 +1,57 @@
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+  }
+  
+  select {
+    width: 400px;
+    height: 75px;
+    font-size: 18px;
+  }
+  
+  .button-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 400px;
+    margin-top: 30px;
+  }
+  
+  .button-container input[type="button"] {
+    margin-right: 10px;
+  }
+  
+  .button-container input[type="submit"] {
+    margin-left: 10px;
+  }
+  
+  body::before,
+  body::after {
+    content: "";
+    position: fixed;
+    background-color: blue;
+    z-index: 9999;
+  }
+  
+  body::before {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+  }
+  
+  body::after {
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 10px;
+  }
+  
+  body::before,
+  body::after {
+    border-left: 10px solid red;
+    border-right: 10px solid red;
+  }
